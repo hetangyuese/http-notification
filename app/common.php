@@ -15,9 +15,14 @@ function logger()
 {
     static $log = null;
     if (!$log) {
+        global $config;
         $log = new \Monolog\Logger('http_notification');
         $log->pushHandler(new \Monolog\Handler\StreamHandler(__DIR__ . '/app.log', \Monolog\Logger::DEBUG));
         $log->pushHandler(new \Monolog\Handler\StreamHandler(__DIR__ . '/app_error.log', \Monolog\Logger::ERROR));
+        if (isset($config['elasticsearch'])) {
+            $client = \Elasticsearch\ClientBuilder::create()->setHosts($config['elasticsearch']['hosts'])->build();
+            $log->pushHandler(new \Monolog\Handler\ElasticsearchHandler($client, $config['elasticsearch']['options']));
+        }
     }
     return $log;
 }

@@ -16,7 +16,8 @@
         "react/http-client": "dev-master",
         "monolog/monolog": "^2.0@dev",
         "predis/predis": "^2.0@dev",
-        "ramsey/uuid": "^4.0@dev"
+        "ramsey/uuid": "^4.0@dev",
+        "elasticsearch/elasticsearch": "dev-master"
     },
     "repositories": {
         "packagist": {

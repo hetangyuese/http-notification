@@ -5,6 +5,17 @@ return [
         'options' => []
     ],
     /**
+     * 根据需要配置elasticsearch
+     * 推荐使用此方式做运维监控
+     */
+    // 'elasticsearch' => [
+    //     'hosts' => ['127.0.0.1:9200'],
+    //     'options' => [
+    //         'index' => 'elastic_index_name',
+    //         'type'  => 'elastic_doc_type',
+    //     ]
+    // ],
+    /**
      * 通知策略
      * fail_interval：通知失败后，间隔多少秒再次通知
      * max_times：最大通知次数，失败次数到达此次数则认为目标失活，会丢弃该条目的通知服务
