@@ -15,7 +15,7 @@ function logger()
 {
     static $log = null;
     if (!$log) {
-        $log = new \Monolog\Logger('http_push');
+        $log = new \Monolog\Logger('http_notification');
         $log->pushHandler(new \Monolog\Handler\StreamHandler(__DIR__ . '/app.log', \Monolog\Logger::DEBUG));
         $log->pushHandler(new \Monolog\Handler\StreamHandler(__DIR__ . '/app_error.log', \Monolog\Logger::ERROR));
     }
@@ -132,5 +132,5 @@ function redo(array $task)
     } else {
         $next_time = time() + $cfg['fail_interval'][$task['times'] - 1];
     }
-    redis()->executeRaw(['LPUSH', 'http_push_' . $next_time, json_encode($task)]);
+    redis()->executeRaw(['LPUSH', 'http_notification_' . $next_time, json_encode($task)]);
 }

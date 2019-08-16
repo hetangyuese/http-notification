@@ -31,7 +31,7 @@ $http_worker->onMessage = function ($connection, $data) {
         $_POST['time'] = time();
     }
 
-    redis()->executeRaw(['LPUSH', 'http_push_' . intval($_POST['time']), json_encode([
+    redis()->executeRaw(['LPUSH', 'http_notification_' . intval($_POST['time']), json_encode([
         'uuid' => \Ramsey\Uuid\Uuid::uuid4(),
         'url' => $_POST['url'],
         'payload' => isset($_POST['payload']) ? $_POST['payload'] : '',

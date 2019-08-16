@@ -7,13 +7,13 @@ $task->onWorkerStart = function () {
 
     foreach ($config['notify_rates'] as $key => $rate) {
         \Workerman\Lib\Timer::add($rate, function () use ($key) {
-            do_task('http_push_' . (time() - $key));
+            do_task('http_notification_' . (time() - $key));
         });
     }
 
     $clear_start = $config['clear_start'];
     \Workerman\Lib\Timer::add($config['clear_rate'], function () use (&$clear_start, $config) {
-        if (!do_task('http_push_' . $clear_start)) {
+        if (!do_task('http_notification_' . $clear_start)) {
             if ($clear_start < time() - count($config['notify_rates'])) {
                 $clear_start += 1;
             }

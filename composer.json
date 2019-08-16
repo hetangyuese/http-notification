@@ -1,6 +1,7 @@
 {
-    "name": "hetangys/chat_server",
-    "description": "chat server",
+    "name": "xielei/http-notification",
+    "description": "Notification service based on HTTP 基于http的高送达率异步通知服务",
+    "type": "project",
     "authors": [
         {
             "name": "谢蕾",
