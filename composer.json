@@ -1,0 +1,26 @@
+{
+    "name": "hetangys/chat_server",
+    "description": "chat server",
+    "authors": [
+        {
+            "name": "谢蕾",
+            "email": "381429578@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0.0",
+        "workerman/workerman": "dev-master",
+        "react/mysql": "dev-master",
+        "react/http-client": "dev-master",
+        "monolog/monolog": "^2.0@dev",
+        "predis/predis": "^2.0@dev",
+        "ramsey/uuid": "^4.0@dev"
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
+    }
+}
